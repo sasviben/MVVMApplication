@@ -30,19 +30,28 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
             <TextBlock Text="Vrsta obroka:"></TextBlock>
             <TextBox Grid.Row="0" Grid.Column="1" />
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Naziv proizvoda:" />
-            <TextBox Grid.Row="1" Grid.Column="1" />
+            <TextBox Grid.Row="1" Grid.Column="1" 
+                    Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Težina u gramima:" />
-            <TextBox Grid.Row="2" Grid.Column="1" />
+            <TextBox Grid.Row="2" Grid.Column="1" 
+                     Text="Tezina" />
 
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Kalorije na 100 grama:" />
-            <TextBox Grid.Row="3" Grid.Column="1" />
+            <TextBox Grid.Row="3" Grid.Column="1"
+                     Text="Kalorije"/>
+            
+            <Button Grid.Row="4" Grid.Column="1" Height="20" Width="150" Margin="0 10 0 0"
+                    Command="{Binding MojaKomanda}"
+                    Content="Poašilji"/>
         </Grid>
         <!--Tablica-->
         <Grid Grid.Column="1">

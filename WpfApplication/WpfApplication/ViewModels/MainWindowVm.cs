@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfApplication.Helper;
+using WpfApplication.Models;
 
 namespace WpfApplication.ViewModels
 {
@@ -14,6 +17,7 @@ namespace WpfApplication.ViewModels
         private string _text;
         private MyCommand _mojaKomanda;
         private MyCommand _mojaKomanda2;
+        private ObservableCollection<PrehrambeniProizvod> _prehrambeniProizvodi;
 
         public MainWindowVm()
         {
@@ -45,8 +49,12 @@ namespace WpfApplication.ViewModels
         
         public void ShowWindow()
         {
-            MessageBox.Show("Bla", "ksjdsdjsd");
-
+           // MessageBox.Show("Bla", "ksjdsdjsd");
+            var prehrambeniProizvod = new PrehrambeniProizvod();
+            prehrambeniProizvod.Naziv = Text;
+            prehrambeniProizvod.Kalorije = 10;
+            prehrambeniProizvod.Težina = 2;
+            _prehrambeniProizvodi.ToList().Add(prehrambeniProizvod);
         }
 
         public bool CanShowWindow(object obj)
