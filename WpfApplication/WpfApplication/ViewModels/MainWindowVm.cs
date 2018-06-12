@@ -14,25 +14,51 @@ namespace WpfApplication.ViewModels
 {
     public class MainWindowVm : ViewModelBase
     {
-        private string _text;
+        private string _txtNaziv;
+        private int _txtTezina;
+        private float _txtKalorije;
         private MyCommand _mojaKomanda;
         private MyCommand _mojaKomanda2;
-        private ObservableCollection<PrehrambeniProizvod> _prehrambeniProizvodi;
+        public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
 
-        public MainWindowVm()
+        public MainWindowVm(List<PrehrambeniProizvod> prehrambeniProizvods)
         {
-            Text = "";
+            PrehrambeniProizvods = prehrambeniProizvods;
         }
         
-        public string Text
+        public string TxtNaziv
         {
-            get { return _text; }
+            get { return _txtNaziv; }
             set
             {
-                _text = value;
+                _txtNaziv = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
                 _mojaKomanda2?.RaiseCanExecuteChanged();
-                OnPropertyChanged(nameof(Text));
+                OnPropertyChanged(nameof(TxtNaziv));
+            }
+        }
+
+        public int TxtTezina
+        {
+            get { return _txtTezina; }
+            set
+            {
+                _txtTezina = value;
+                _mojaKomanda?.RaiseCanExecuteChanged();
+                _mojaKomanda2?.RaiseCanExecuteChanged();
+                OnPropertyChanged(nameof(TxtTezina));
+            }
+        }
+
+        public float TxtKalorije
+        {
+            get { return _txtKalorije; }
+            set
+            {
+                _txtKalorije = value;
+                _mojaKomanda?.RaiseCanExecuteChanged();
+                _mojaKomanda2?.RaiseCanExecuteChanged();
+                OnPropertyChanged(nameof(TxtKalorije));
             }
         }
 
@@ -43,23 +69,28 @@ namespace WpfApplication.ViewModels
         {
             get
             {
-                return _mojaKomanda != null ? _mojaKomanda : (_mojaKomanda = new MyCommand(()=>ShowWindow(), CanShowWindow));
+                return _mojaKomanda != null ? _mojaKomanda : (_mojaKomanda = new MyCommand(()=>SaveDateFromForm(), CanShowWindow));
             }
         }
         
-        public void ShowWindow()
+        public void SaveDateFromForm()
         {
-           // MessageBox.Show("Bla", "ksjdsdjsd");
-            var prehrambeniProizvod = new PrehrambeniProizvod();
-            prehrambeniProizvod.Naziv = Text;
-            prehrambeniProizvod.Kalorije = 10;
-            prehrambeniProizvod.Težina = 2;
-            _prehrambeniProizvodi.ToList().Add(prehrambeniProizvod);
+            var prehrambeniProizvod = new PrehrambeniProizvod
+            {
+                Naziv = TxtNaziv,
+                Kalorije = TxtKalorije,
+                Težina = TxtTezina
+            };
+            PrehrambeniProizvods.Add(prehrambeniProizvod);
+            PrehrambeniProizvodi = new ObservableCollection<PrehrambeniProizvod>(PrehrambeniProizvods);
+
         }
 
         public bool CanShowWindow(object obj)
         {
-            return Text.Length > 0;
+           // return TxtNaziv.Length > 0;
+           //TODO
+            return true;
         }
 
 
@@ -72,14 +103,16 @@ namespace WpfApplication.ViewModels
             }
         }
 
+        public List<PrehrambeniProizvod> PrehrambeniProizvods { get; }
+
         public void ResetirajText()
         {
-            Text = "";
+            TxtNaziv = "";
         }
 
         public bool CanResetirajText(object obj)
         {
-            return Text.Length > 0;
+            return TxtNaziv.Length > 0;
         }
 
         #endregion
