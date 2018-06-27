@@ -39,7 +39,7 @@
             }
         }
 
-        public int FormTezina
+        public float FormTezina
         {
             get { return _formTezina; }
             set
