@@ -9,7 +9,7 @@ namespace WpfApplication.Models
     public class PrehrambeniProizvod
     {
         public string Naziv { get; set; }
-        public int Težina { get; set; }
+        public float Težina { get; set; }
         public float Kalorije { get; set; }
     }
 }
