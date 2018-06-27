@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfApplication"
         xmlns:viewModels="clr-namespace:WpfApplication.ViewModels"
         xmlns:views="clr-namespace:WpfApplication.Views"
+        xmlns:models="clr-namespace:WpfApplication.Models"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         d:DataContext="{d:DesignInstance viewModels:MainWindowVm}">
@@ -39,25 +40,51 @@
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Naziv proizvoda:" />
             <TextBox Grid.Row="1" Grid.Column="1" 
-                    Text="{Binding TxtNaziv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding FormNaziv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Težina u gramima:" />
             <TextBox Grid.Row="2" Grid.Column="1" 
-                     Text="{Binding TxtTezina, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                     Text="{Binding FormTezina, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Kalorije na 100 grama:" />
             <TextBox Grid.Row="3" Grid.Column="1"
-                     Text="{Binding TxtKalorije, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                     Text="{Binding FormKalorije, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             
+            <Button Grid.Row="4" Grid.Column="0" Height="20" Width="150" Margin="0 10 0 0"
+                    Command="{Binding MojaKomanda}"
+                    Content="Prikaži"/>
+
             <Button Grid.Row="4" Grid.Column="1" Height="20" Width="150" Margin="0 10 0 0"
                     Command="{Binding MojaKomanda}"
-                    Content="Poašilji"/>
+                    Content="Pošalji"/>
         </Grid>
         <!--Tablica-->
-        <Grid Grid.Column="1">
-            
+        <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" FontWeight="Bold" Foreground="BlueViolet" FontSize="24" Text="Ukupna količina unesene hrane"></TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" FontWeight="Bold" Foreground="BlueViolet" FontSize="24"
+                       Text="{Binding PrehrambeniProizvodi, Mode=TwoWay}" />
+           <!-- <ListBox Grid.Column="0" Grid.Row="1" Margin="20" ItemsSource="{Binding Path=PrehrambeniProizvodi}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Naziv}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>-->
         </Grid>
-     
+
+
+
 
         <!--<Grid.RowDefinitions>
             <RowDefinition />

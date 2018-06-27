@@ -22,7 +22,7 @@ namespace WpfApplication
         {
             base.OnStartup(e);
             
-            var vm = new MainWindowVm(new List<PrehrambeniProizvod>());
+            var vm = new MainWindowVm(new ObservableCollection<PrehrambeniProizvod>());
             var view = new MainWindow(vm);
 
             view.Show();
