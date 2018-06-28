@@ -8,8 +8,10 @@ namespace WpfApplication.Models
 {
     public class PrehrambeniProizvod
     {
+        public string Vrsta { get; set; }
         public string Naziv { get; set; }
-        public float Težina { get; set; }
+        public float Tezina { get; set; }
         public float Kalorije { get; set; }
+        public float SumaKalorija { get; set; }
     }
 }

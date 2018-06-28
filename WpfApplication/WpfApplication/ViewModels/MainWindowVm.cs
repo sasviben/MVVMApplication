@@ -1,11 +1,10 @@
 ﻿namespace WpfApplication.ViewModels
 {
+    using System;
+
     #region Using
 
-    using System;
     using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Windows;
     using System.Windows.Input;
     using Helper;
     using Models;
@@ -14,9 +13,10 @@
 
     public class MainWindowVm : ViewModelBase
     {
-        private string _formNaziv = string.Empty;
-        private float _formTezina = 0;
-        private float _formKalorije = 0;
+        private string _formVrstaObroka = string.Empty;
+        private string _formNazivProizvoda = string.Empty;
+        private string _formTezina = string.Empty;
+        private string _formKalorije = string.Empty;
         private MyCommand _mojaKomanda;
         private MyCommand _mojaKomanda2;
 
@@ -27,19 +27,31 @@
             PrehrambeniProizvodi = prehrambeniProizvodi;
         }
 
-        public string FormNaziv
+        public string FormNazivProizvoda
         {
-            get { return _formNaziv; }
+            get { return _formNazivProizvoda; }
             set
             {
-                _formNaziv = value;
+                _formNazivProizvoda = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
                 _mojaKomanda2?.RaiseCanExecuteChanged();
-                OnPropertyChanged(nameof(FormNaziv));
+                OnPropertyChanged(nameof(FormNazivProizvoda));
             }
         }
 
-        public float FormTezina
+        public string FormVrstaObroka
+        {
+            get { return _formVrstaObroka; }
+            set
+            {
+                _formVrstaObroka = value;
+                _mojaKomanda?.RaiseCanExecuteChanged();
+                _mojaKomanda2?.RaiseCanExecuteChanged();
+                OnPropertyChanged(nameof(FormVrstaObroka));
+            }
+        }
+
+        public string FormTezina
         {
             get { return _formTezina; }
             set
@@ -51,7 +63,7 @@
             }
         }
 
-        public float FormKalorije
+        public string FormKalorije
         {
             get { return _formKalorije; }
             set
@@ -80,9 +92,9 @@
         //    {
         //        return new List<PrehrambeniProizvod>
         //               {
-        //                   new PrehrambeniProizvod { Naziv = FormNaziv },
+        //                   new PrehrambeniProizvod { Naziv = FormNazivProizvoda },
         //                   new PrehrambeniProizvod { Kalorije = FormKalorije },
-        //                   new PrehrambeniProizvod { Težina = FormTezina }
+        //                   new PrehrambeniProizvod { Tezina = FormTezina }
         //               };
         //    }
         //    set
@@ -102,26 +114,34 @@
             get { return _mojaKomanda != null ? _mojaKomanda : (_mojaKomanda = new MyCommand(() => SaveDateFromForm(), CanShowWindow)); }
         }
 
-        public void SaveDateFromForm()
+        private void SaveDateFromForm()
         {
+            
             PrehrambeniProizvodi.Add(new PrehrambeniProizvod
                                      {
-                                         Naziv = FormNaziv,
-                                         Kalorije = FormKalorije,
-                                         Težina = FormTezina
+                                         Vrsta = FormVrstaObroka,
+                                         Naziv = FormNazivProizvoda,
+                                         Kalorije = float.Parse(FormKalorije),
+                                         Tezina = float.Parse(FormTezina),
+                                         SumaKalorija = IzracunajSumu(float.Parse(FormTezina), float.Parse(FormKalorije))
                                      });
         }
 
-        public bool CanShowWindow(object obj)
+        private float IzracunajSumu(float tezina, float kalorije)
         {
+            return (tezina / 100) * kalorije;
 
-            if (FormNaziv.Length > 0 && FormKalorije > 0 && FormTezina > 0)
+        }
+
+        private bool CanShowWindow(object obj)
+        {
+            if (FormNazivProizvoda.Length > 0 && FormKalorije.Length > 0 && FormTezina.Length > 0)
             {
                 //TODO: ako je unesen tekst za kalorije i tezinu button treba biti onemogućen
-                //if (FormKalorije is typeof(float))
+                float xResult;
+                if (float.TryParse(FormKalorije, out xResult) && float.TryParse(FormTezina, out xResult))
                     return true;
             }
-            
             return false;
         }
 
