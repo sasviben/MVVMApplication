@@ -8,10 +8,7 @@
 //------------------------------------------------------------------------------
 
 namespace WpfApplication.Models
-{
-    using System;
-    using System.Collections.Generic;
-    
+{ 
     public partial class Hrana
     {
         public int id { get; set; }

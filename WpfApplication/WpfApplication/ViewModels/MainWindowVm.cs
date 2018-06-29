@@ -19,33 +19,20 @@
         private string _formTezina = string.Empty;
         private string _formKalorije = string.Empty;
         private MyCommand _mojaKomanda;
-        private MyCommand _mojaKomanda2;
-        private BazaEntities _bazaEntities;
+        private readonly BazaEntities _bazaEntities;
 
         public MainWindowVm()
         {
             _bazaEntities = new BazaEntities();
 
             PrehrambeniProizvodi = new ObservableCollection<PrehrambeniProizvod>();
-            
+
             VrsteObroka = new ObservableCollection<string>(Enum.GetNames(typeof(VrstaObrokaEnum)));
 
-            LoadDataFromDatabase();
+            LoadDataFromDatabase();//ucitaj podatke iz baze u kolekciju PrehrambeniProizvodi
         }
-
-        private void LoadDataFromDatabase()
-        {
-            var hranaLocal = _bazaEntities.Hrana.ToList();
-            foreach (var hrana in hranaLocal)
-            {
-                PrehrambeniProizvodi.Add(new PrehrambeniProizvod(hrana));
-            }
-        }
-
 
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
-
-        //  public VrstaObrokaEnum VrsteObroka { get; set; }
         public ObservableCollection<string> VrsteObroka { get; set; }
 
 
@@ -56,7 +43,6 @@
             {
                 _formNazivProizvoda = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
-                //_mojaKomanda2?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(FormNazivProizvoda));
             }
         }
@@ -68,7 +54,6 @@
             {
                 _comboBoxVrstaObroka = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
-               // _mojaKomanda2?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(ComboBoxVrstaObroka));
             }
         }
@@ -80,7 +65,6 @@
             {
                 _formTezina = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
-               // _mojaKomanda2?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(FormTezina));
             }
         }
@@ -92,7 +76,6 @@
             {
                 _formKalorije = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
-               // _mojaKomanda2?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(FormKalorije));
             }
         }
@@ -102,10 +85,9 @@
         //ovo je samo za button koji sprema podatke iz forme u kolekciju
         public ICommand MojaKomanda
         {
-            get { return _mojaKomanda != null ? _mojaKomanda : (_mojaKomanda = new MyCommand(() => SaveDateFromForm(), CanShowWindow)); }
+            get { return _mojaKomanda != null ? _mojaKomanda : (_mojaKomanda = new MyCommand(() => SaveDateFromForm(), CanSaveDateFromForm)); }
         }
-
-
+   
         private void SaveDateFromForm()
         {
             PrehrambeniProizvodi.Add(new PrehrambeniProizvod
@@ -123,28 +105,30 @@
             return (tezina / 100) * kalorije;
         }
 
-        private bool CanShowWindow(object obj)
+        private bool CanSaveDateFromForm(object obj)
         {
             //ako su polja prazna button treba biti onemogućen
             if (FormNazivProizvoda.Length > 0 && FormKalorije.Length > 0 && FormTezina.Length > 0)
             {
                 //ako nije unesen broj za kalorije i tezinu button treba biti onemogućen
-                float xResult;
-                if (float.TryParse(FormKalorije, out xResult) && float.TryParse(FormTezina, out xResult))
+                if (float.TryParse(FormKalorije, out _) && float.TryParse(FormTezina, out _))
                     return true;
             }
 
             return false;
         }
-
-
-
+        private void LoadDataFromDatabase()
+        {
+            var hranaDb = _bazaEntities.Hrana.ToList();
+            foreach (var hrana in hranaDb)
+            {
+                PrehrambeniProizvodi.Add(new PrehrambeniProizvod(hrana));
+            }
+        }
 
         public void SaveToDatabase()
         {
-            //spremi iz liste PrehrambeniProizvodi u bazu
-
-
+            //na Close window spremi iz liste PrehrambeniProizvodi u bazu
             foreach (var hrana in _bazaEntities.Hrana.ToList())
             {
                 //ako postoji u listi PrehrambeniProizvodi i u bazi nemoj brisati iz baze
@@ -154,11 +138,10 @@
                 _bazaEntities.Hrana.Remove(hrana);
             }
 
-
             foreach (var prehrambeniProizvod in PrehrambeniProizvodi)
             {
                 //ako postoji u bazi i u listi PrehrambeniProizvodi nemoj dodati u bazu
-                if (_bazaEntities.Hrana.Any(x=>x.id == prehrambeniProizvod.Id))
+                if (_bazaEntities.Hrana.Any(x => x.id == prehrambeniProizvod.Id))
                     continue;
 
                 var hrana = new Hrana
@@ -170,15 +153,10 @@
                                 suma_kalorija = prehrambeniProizvod.SumaKalorija
                             };
 
-
                 _bazaEntities.Hrana.Add(hrana);
             }
 
-            
             _bazaEntities.SaveChanges();
-            
-
-            //var nazivProizvoda = PrehrambeniProizvodi.Select(proizvod => proizvod.Naziv).ToString();
         }
 
         #endregion

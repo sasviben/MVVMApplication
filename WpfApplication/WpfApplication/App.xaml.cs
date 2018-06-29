@@ -29,7 +29,7 @@ namespace WpfApplication
             _viewModel = new MainWindowVm();
             var view = new MainWindow(_viewModel);
 
-            view.Closing += ViewOnClosing;
+            view.Closing += ViewOnClosing;//prije zatvaranja spremi u bazu
             view.Show();
         }
 
