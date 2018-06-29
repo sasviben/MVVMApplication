@@ -1,31 +1,53 @@
 ﻿namespace WpfApplication.ViewModels
 {
-    using System;
-
     #region Using
 
+    using System;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows.Input;
     using Helper;
     using Models;
 
     #endregion
 
+
     public class MainWindowVm : ViewModelBase
     {
-        private string _formVrstaObroka = string.Empty;
+        private string _comboBoxVrstaObroka;
         private string _formNazivProizvoda = string.Empty;
         private string _formTezina = string.Empty;
         private string _formKalorije = string.Empty;
         private MyCommand _mojaKomanda;
         private MyCommand _mojaKomanda2;
+        private BazaEntities _bazaEntities;
+
+        public MainWindowVm()
+        {
+            _bazaEntities = new BazaEntities();
+
+            PrehrambeniProizvodi = new ObservableCollection<PrehrambeniProizvod>();
+            
+            VrsteObroka = new ObservableCollection<string>(Enum.GetNames(typeof(VrstaObrokaEnum)));
+
+            LoadDataFromDatabase();
+        }
+
+        private void LoadDataFromDatabase()
+        {
+            var hranaLocal = _bazaEntities.Hrana.ToList();
+            foreach (var hrana in hranaLocal)
+            {
+                PrehrambeniProizvodi.Add(new PrehrambeniProizvod(hrana));
+            }
+        }
+
 
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
 
-        public MainWindowVm(ObservableCollection<PrehrambeniProizvod> prehrambeniProizvodi)
-        {
-            PrehrambeniProizvodi = prehrambeniProizvodi;
-        }
+        //  public VrstaObrokaEnum VrsteObroka { get; set; }
+        public ObservableCollection<string> VrsteObroka { get; set; }
+
 
         public string FormNazivProizvoda
         {
@@ -34,20 +56,20 @@
             {
                 _formNazivProizvoda = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
-                _mojaKomanda2?.RaiseCanExecuteChanged();
+                //_mojaKomanda2?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(FormNazivProizvoda));
             }
         }
 
-        public string FormVrstaObroka
+        public string ComboBoxVrstaObroka
         {
-            get { return _formVrstaObroka; }
+            get { return _comboBoxVrstaObroka; }
             set
             {
-                _formVrstaObroka = value;
+                _comboBoxVrstaObroka = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
-                _mojaKomanda2?.RaiseCanExecuteChanged();
-                OnPropertyChanged(nameof(FormVrstaObroka));
+               // _mojaKomanda2?.RaiseCanExecuteChanged();
+                OnPropertyChanged(nameof(ComboBoxVrstaObroka));
             }
         }
 
@@ -58,7 +80,7 @@
             {
                 _formTezina = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
-                _mojaKomanda2?.RaiseCanExecuteChanged();
+               // _mojaKomanda2?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(FormTezina));
             }
         }
@@ -70,7 +92,7 @@
             {
                 _formKalorije = value;
                 _mojaKomanda?.RaiseCanExecuteChanged();
-                _mojaKomanda2?.RaiseCanExecuteChanged();
+               // _mojaKomanda2?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(FormKalorije));
             }
         }
@@ -83,12 +105,12 @@
             get { return _mojaKomanda != null ? _mojaKomanda : (_mojaKomanda = new MyCommand(() => SaveDateFromForm(), CanShowWindow)); }
         }
 
+
         private void SaveDateFromForm()
         {
-            
             PrehrambeniProizvodi.Add(new PrehrambeniProizvod
                                      {
-                                         Vrsta = FormVrstaObroka,
+                                         Vrsta = ComboBoxVrstaObroka,
                                          Naziv = FormNazivProizvoda,
                                          Kalorije = float.Parse(FormKalorije),
                                          Tezina = float.Parse(FormTezina),
@@ -99,7 +121,6 @@
         private float IzracunajSumu(float tezina, float kalorije)
         {
             return (tezina / 100) * kalorije;
-
         }
 
         private bool CanShowWindow(object obj)
@@ -112,28 +133,53 @@
                 if (float.TryParse(FormKalorije, out xResult) && float.TryParse(FormTezina, out xResult))
                     return true;
             }
+
             return false;
         }
 
 
-        ////ovo je samo za button koji prikazuje podatke iz kolekcije na View
-        //public ICommand MojaKomanda2
-        //{
-        //    get { return _mojaKomanda2 != null ? _mojaKomanda2 : (_mojaKomanda2 = new MyCommand(() => PrikaziText(), CanPrikazatiText)); }
-        //}
 
-        //public void PrikaziText()
-        //{
-        //    //dohvati sve iz nazive Prehrambenih proizvoda iz liste
 
-        //    //var nazivProizvoda = PrehrambeniProizvodi.Select(proizvod => proizvod.Naziv).ToString();
-        //}
+        public void SaveToDatabase()
+        {
+            //spremi iz liste PrehrambeniProizvodi u bazu
 
-        //public bool CanPrikazatiText(object obj)
-        //{
-        //    //TODO
-        //    return true;
-        //}
+
+            foreach (var hrana in _bazaEntities.Hrana.ToList())
+            {
+                //ako postoji u listi PrehrambeniProizvodi i u bazi nemoj brisati iz baze
+                if (PrehrambeniProizvodi.Any(x => x.Id == hrana.id))
+                    continue;
+                //ako ne postoji u listi PrehrambeniProizvodi izbriši iz baze
+                _bazaEntities.Hrana.Remove(hrana);
+            }
+
+
+            foreach (var prehrambeniProizvod in PrehrambeniProizvodi)
+            {
+                //ako postoji u bazi i u listi PrehrambeniProizvodi nemoj dodati u bazu
+                if (_bazaEntities.Hrana.Any(x=>x.id == prehrambeniProizvod.Id))
+                    continue;
+
+                var hrana = new Hrana
+                            {
+                                vrsta_obroka = prehrambeniProizvod.Vrsta,
+                                naziv_proizvoda = prehrambeniProizvod.Naziv,
+                                kalorije = prehrambeniProizvod.Kalorije,
+                                tezina = prehrambeniProizvod.Tezina,
+                                suma_kalorija = prehrambeniProizvod.SumaKalorija
+                            };
+
+
+                _bazaEntities.Hrana.Add(hrana);
+            }
+
+            
+            _bazaEntities.SaveChanges();
+            
+
+            //var nazivProizvoda = PrehrambeniProizvodi.Select(proizvod => proizvod.Naziv).ToString();
+        }
 
         #endregion
     }

@@ -13,19 +13,29 @@ using WpfApplication.Views;
 
 namespace WpfApplication
 {
+    using System.ComponentModel;
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        private MainWindowVm _viewModel;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            
-            var vm = new MainWindowVm(new ObservableCollection<PrehrambeniProizvod>());
-            var view = new MainWindow(vm);
 
+            _viewModel = new MainWindowVm();
+            var view = new MainWindow(_viewModel);
+
+            view.Closing += ViewOnClosing;
             view.Show();
+        }
+
+        private void ViewOnClosing(object sender, CancelEventArgs e)
+        {
+            _viewModel.SaveToDatabase();
         }
     }
     
