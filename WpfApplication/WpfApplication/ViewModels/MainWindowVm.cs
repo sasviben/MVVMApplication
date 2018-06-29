@@ -75,37 +75,6 @@
             }
         }
 
-        /*public string TxtNaziv
-        {
-            get { return _txtNaziv; }
-            set
-            {
-                _txtNaziv = value;
-                _mojaKomanda2?.RaiseCanExecuteChanged();
-                OnPropertyChanged(nameof(TxtNaziv));
-            }
-        }*/
-
-        //public List<PrehrambeniProizvod> PrehrambeniProizvods
-        //{
-        //    get
-        //    {
-        //        return new List<PrehrambeniProizvod>
-        //               {
-        //                   new PrehrambeniProizvod { Naziv = FormNazivProizvoda },
-        //                   new PrehrambeniProizvod { Kalorije = FormKalorije },
-        //                   new PrehrambeniProizvod { Tezina = FormTezina }
-        //               };
-        //    }
-        //    set
-        //    {
-        //        //NazivProizvoda = value;
-        //        _mojaKomanda2?.RaiseCanExecuteChanged();
-        //        OnPropertyChanged(nameof(PrehrambeniProizvods));
-        //    }
-        //}
-
-
         #region Commands
 
         //ovo je samo za button koji sprema podatke iz forme u kolekciju
@@ -135,9 +104,10 @@
 
         private bool CanShowWindow(object obj)
         {
+            //ako su polja prazna button treba biti onemogućen
             if (FormNazivProizvoda.Length > 0 && FormKalorije.Length > 0 && FormTezina.Length > 0)
             {
-                //TODO: ako je unesen tekst za kalorije i tezinu button treba biti onemogućen
+                //ako nije unesen broj za kalorije i tezinu button treba biti onemogućen
                 float xResult;
                 if (float.TryParse(FormKalorije, out xResult) && float.TryParse(FormTezina, out xResult))
                     return true;
@@ -146,24 +116,24 @@
         }
 
 
-        //ovo je samo za button koji prikazuje podatke iz kolekcije na View
-        public ICommand MojaKomanda2
-        {
-            get { return _mojaKomanda2 != null ? _mojaKomanda2 : (_mojaKomanda2 = new MyCommand(() => PrikaziText(), CanPrikazatiText)); }
-        }
+        ////ovo je samo za button koji prikazuje podatke iz kolekcije na View
+        //public ICommand MojaKomanda2
+        //{
+        //    get { return _mojaKomanda2 != null ? _mojaKomanda2 : (_mojaKomanda2 = new MyCommand(() => PrikaziText(), CanPrikazatiText)); }
+        //}
 
-        public void PrikaziText()
-        {
-            //dohvati sve iz nazive Prehrambenih proizvoda iz liste
+        //public void PrikaziText()
+        //{
+        //    //dohvati sve iz nazive Prehrambenih proizvoda iz liste
 
-            //var nazivProizvoda = PrehrambeniProizvodi.Select(proizvod => proizvod.Naziv).ToString();
-        }
+        //    //var nazivProizvoda = PrehrambeniProizvodi.Select(proizvod => proizvod.Naziv).ToString();
+        //}
 
-        public bool CanPrikazatiText(object obj)
-        {
-            //TODO
-            return true;
-        }
+        //public bool CanPrikazatiText(object obj)
+        //{
+        //    //TODO
+        //    return true;
+        //}
 
         #endregion
     }

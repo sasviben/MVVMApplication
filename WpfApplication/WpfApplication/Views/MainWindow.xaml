@@ -51,10 +51,6 @@
             <TextBox Grid.Row="3" Grid.Column="1"
                      Text="{Binding FormKalorije, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <Button Grid.Row="4" Grid.Column="0" Height="20" Width="150" Margin="0 10 0 0"
-                    Command="{Binding MojaKomanda}"
-                    Content="Prikaži"/>
-
             <Button Grid.Row="4" Grid.Column="1" Height="20" Width="150" Margin="0 10 0 0"
                     Command="{Binding MojaKomanda}"
                     Content="Pošalji"/>
@@ -82,6 +78,10 @@
                     <DataGridTextColumn Header ="Ukupno Kcal" Binding="{Binding Path=SumaKalorija}" MinWidth="50" />
                 </DataGrid.Columns>
             </DataGrid>
+            
+            <Button Grid.Row="4" Grid.Column="0" Height="20" Width="150" Margin="0 10 0 0"
+                    Command="{Binding MojaKomanda}"
+                    Content="Spremi"/>
         </Grid>
 
 
