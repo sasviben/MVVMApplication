@@ -114,6 +114,7 @@
                 if (float.TryParse(FormKalorije, out _) && float.TryParse(FormTezina, out _))
                     return true;
             }
+
             return false;
         }
         private void LoadDataFromDatabase()
