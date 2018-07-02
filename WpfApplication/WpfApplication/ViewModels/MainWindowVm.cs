@@ -18,8 +18,11 @@
         private string _formNazivProizvoda = string.Empty;
         private string _formTezina = string.Empty;
         private string _formKalorije = string.Empty;
+        private float _sumaKalorijaUDanu;
         private MyCommand _mojaKomanda;
         private readonly BazaEntities _bazaEntities;
+        private MyCommand _mojaKomanda2;
+
 
         public MainWindowVm()
         {
@@ -80,6 +83,17 @@
             }
         }
 
+        public string SumaKalorijaUDanu
+        {
+            get { return _sumaKalorijaUDanu.ToString(); }
+            set
+            {
+                _sumaKalorijaUDanu = float.Parse(value);
+                _mojaKomanda2?.RaiseCanExecuteChanged();
+                OnPropertyChanged(nameof(SumaKalorijaUDanu));
+            }
+        }
+
         #region Commands
 
         //ovo je samo za button koji sprema podatke iz forme u kolekciju
@@ -87,7 +101,7 @@
         {
             get { return _mojaKomanda != null ? _mojaKomanda : (_mojaKomanda = new MyCommand(() => SaveDateFromForm(), CanSaveDateFromForm)); }
         }
-   
+
         private void SaveDateFromForm()
         {
             PrehrambeniProizvodi.Add(new PrehrambeniProizvod
@@ -96,13 +110,8 @@
                                          Naziv = FormNazivProizvoda,
                                          Kalorije = float.Parse(FormKalorije),
                                          Tezina = float.Parse(FormTezina),
-                                         SumaKalorija = IzracunajSumu(float.Parse(FormTezina), float.Parse(FormKalorije))
+                                         SumaKalorija = CalculateSum(float.Parse(FormTezina), float.Parse(FormKalorije))
                                      });
-        }
-
-        private float IzracunajSumu(float tezina, float kalorije)
-        {
-            return (tezina / 100) * kalorije;
         }
 
         private bool CanSaveDateFromForm(object obj)
@@ -116,6 +125,34 @@
             }
             return false;
         }
+
+
+        public ICommand MojaKomanda2
+        {
+            get { return _mojaKomanda2 != null ? _mojaKomanda2 : (_mojaKomanda2 = new MyCommand(() => CalculateDaySum(), CanCalculateSum)); }
+        }
+
+        private void CalculateDaySum()
+        {//todo: doraditi računanje;
+            float sum = 0;
+            foreach (var prehrambeniProizvod in PrehrambeniProizvodi)
+            {
+                  sum += prehrambeniProizvod.SumaKalorija;   
+            }
+            _sumaKalorijaUDanu = sum;
+        }
+
+        private bool CanCalculateSum(object obj)
+        {
+            return true;
+        }
+        #endregion
+
+        private float CalculateSum(float tezina, float kalorije)
+        {
+            return (tezina / 100) * kalorije;
+        }
+
         private void LoadDataFromDatabase()
         {
             var hranaDb = _bazaEntities.Hrana.ToList();
@@ -158,6 +195,6 @@
             _bazaEntities.SaveChanges();
         }
 
-        #endregion
+        
     }
 }
