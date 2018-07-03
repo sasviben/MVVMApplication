@@ -83,7 +83,7 @@
             <Button Grid.Column="0" Height="20" Width="Auto" Margin="0 10 0 0" HorizontalAlignment="Left"
                     Command="{Binding MojaKomanda2}"
                     Content="Ukupan unos kalorija u danu" />
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding SumaKalorijaUDanu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SumaKalorijaUDanu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
 
         </Grid>
     </Grid>

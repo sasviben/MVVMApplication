@@ -83,12 +83,12 @@
             }
         }
 
-        public string SumaKalorijaUDanu
+        public float SumaKalorijaUDanu
         {
-            get { return _sumaKalorijaUDanu.ToString(); }
+            get { return _sumaKalorijaUDanu; }
             set
             {
-                _sumaKalorijaUDanu = float.Parse(value);
+                _sumaKalorijaUDanu = value;
                 _mojaKomanda2?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(SumaKalorijaUDanu));
             }
@@ -124,6 +124,7 @@
                     return true;
             }
             return false;
+
         }
 
 
@@ -139,7 +140,7 @@
             {
                   sum += prehrambeniProizvod.SumaKalorija;   
             }
-            _sumaKalorijaUDanu = sum;
+            SumaKalorijaUDanu = sum;
         }
 
         private bool CanCalculateSum(object obj)
