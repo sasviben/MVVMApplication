@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         d:DataContext="{d:DesignInstance viewModels:MainWindowVm}">
-    <Grid>
+    <Grid Margin="10,0,0,0">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -55,13 +56,6 @@
         </Grid>
         <!--Tablica-->
         <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,0">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
             <DataGrid AutoGenerateColumns="False"
                       ItemsSource="{Binding PrehrambeniProizvodi}" Grid.ColumnSpan="4">
                 <DataGrid.Columns>
@@ -72,6 +66,25 @@
                     <DataGridTextColumn Width="*" Header="Ukupno Kcal" Binding="{Binding Path=SumaKalorija}" MinWidth="50" />
                 </DataGrid.Columns>
             </DataGrid>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Height="20" Width="Auto" Margin="0 10 0 0" HorizontalAlignment="Left"
+                    Command="{Binding MojaKomanda2}"
+                    Content="Ukupan unos kalorija u danu" />
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding SumaKalorijaUDanu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+
         </Grid>
     </Grid>
 </Window>
