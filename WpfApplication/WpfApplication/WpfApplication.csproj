@@ -167,6 +167,7 @@
       <DependentUpon>ModelBaze.edmx</DependentUpon>
       <LastGenOutput>ModelBaze.cs</LastGenOutput>
     </Content>
+    <Resource Include="Models\nutrition.xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
