@@ -6,6 +6,7 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows.Input;
+    using System.Xml.Linq;
     using Helper;
     using Models;
 
@@ -22,6 +23,7 @@
         private MyCommand _mojaKomanda;
         private readonly BazaEntities _bazaEntities;
         private MyCommand _mojaKomanda2;
+        private readonly string _pathOfXml = @"C:\Users\ssviben\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
 
 
         public MainWindowVm()
@@ -29,13 +31,15 @@
             _bazaEntities = new BazaEntities();
 
             PrehrambeniProizvodi = new ObservableCollection<PrehrambeniProizvod>();
+            PrehrambeniProizvodiINutritivneVrijednosti = new ObservableCollection<PrehrambeniProizvod>();
 
             VrsteObroka = new ObservableCollection<string>(Enum.GetNames(typeof(VrstaObrokaEnum)));
 
-            LoadDataFromDatabase();//ucitaj podatke iz baze u kolekciju PrehrambeniProizvodi
+            LoadDataFromDatabase(); //ucitaj podatke iz baze u kolekciju PrehrambeniProizvodi
         }
 
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
+        public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodiINutritivneVrijednosti { get; set; }
         public ObservableCollection<string> VrsteObroka { get; set; }
 
 
@@ -123,8 +127,8 @@
                 if (float.TryParse(FormKalorije, out _) && float.TryParse(FormTezina, out _))
                     return true;
             }
-            return false;
 
+            return false;
         }
 
 
@@ -134,12 +138,14 @@
         }
 
         private void CalculateDaySum()
-        {//todo: doraditi računanje;
+        {
+            //todo: doraditi računanje;
             float sum = 0;
             foreach (var prehrambeniProizvod in PrehrambeniProizvodi)
             {
-                  sum += prehrambeniProizvod.SumaKalorija;   
+                sum += prehrambeniProizvod.SumaKalorija;
             }
+
             SumaKalorijaUDanu = sum;
         }
 
@@ -147,6 +153,7 @@
         {
             return true;
         }
+
         #endregion
 
         private float CalculateSum(float tezina, float kalorije)
@@ -185,8 +192,11 @@
                             {
                                 vrsta_obroka = prehrambeniProizvod.Vrsta,
                                 naziv_proizvoda = prehrambeniProizvod.Naziv,
-                                kalorije = prehrambeniProizvod.Kalorije,
                                 tezina = prehrambeniProizvod.Tezina,
+                                kalorije = prehrambeniProizvod.Kalorije,
+                                bjelancevine = prehrambeniProizvod.Bjelancevine,
+                                ugljikohidrati = prehrambeniProizvod.Ugljikohidrati,
+                                masti = prehrambeniProizvod.Masti,
                                 suma_kalorija = prehrambeniProizvod.SumaKalorija
                             };
 
@@ -196,6 +206,24 @@
             _bazaEntities.SaveChanges();
         }
 
-        
+        public void PrehrambeniProizvodiXmlParser()
+        {
+            //TODO: spremiti podatke iz xml-a u listu
+            var xmlTypeDocument = XDocument.Load(_pathOfXml); 
+
+            var foodListNode = xmlTypeDocument.Descendants("food-group").First();
+
+            //var appList = appListNode.Descendants("Application")
+            //                         .Where(appNode => appNode.Attribute("type").Value.Equals("VGW"))
+            //                         .Select(appNode => new { appNode, addressNode = appNode.Descendants("MyIPAddr").First() })
+            //                         .Select(t => new VideoGateway()
+            //                                      {
+            //                                          GatewayName = t.appNode.Attribute("id").Value,
+            //                                          GatewayIpAddress = t.addressNode.Value,
+            //                                          GatewayPort = int.Parse(t.addressNode.Attribute("port").Value),
+            //                                          Streams = t.appNode.Descendants("Stream").Select(vgw => int.Parse(vgw.Attribute("chid").Value))
+            //                                                     .ToList()
+            //                                      }).ToList();
+        }
     }
 }
