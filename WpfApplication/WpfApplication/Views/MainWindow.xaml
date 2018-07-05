@@ -39,6 +39,8 @@
                       SelectedItem="{Binding ComboBoxVrstaObroka, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Naziv proizvoda:" />
+            <!--TODO: Dodati novo polje Textblock i ddl za grupe proizvoda-->
+            <!--TODO: Zamijeniti textbox sa ddl sa proizvodima-->
             <TextBox Grid.Row="1" Grid.Column="1"
                      Text="{Binding FormNazivProizvoda, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -47,14 +49,17 @@
                      Text="{Binding FormTezina, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Kalorije na 100 grama:" />
+            <!--TODO: izbaciti iz forme i ubaciti u tabelu-->
             <TextBox Grid.Row="3" Grid.Column="1"
                      Text="{Binding FormKalorije, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            
 
             <Button Grid.Row="4" Grid.Column="1" Height="20" Width="150" Margin="0 10 0 0"
                     Command="{Binding MojaKomanda}"
                     Content="Pošalji" />
         </Grid>
         <!--Tablica-->
+        <!--TODO: Dodati u Tablicu prikaz za ugljikohidrate, bjelancevine i masti-->
         <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,0">
             <DataGrid AutoGenerateColumns="False"
                       ItemsSource="{Binding PrehrambeniProizvodi}" Grid.ColumnSpan="4">
@@ -80,6 +85,8 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            <!--TODO: prosiriti button tako da izracuna i prikaze ukupne vrijednosti za sve nutritivne vrijednosti od toga dana-->
+            <!--TODO: potencijalno bi to mogla biti nova tablica koja racuna kalorije na tjednoj bazi-->
             <Button Grid.Column="0" Height="20" Width="Auto" Margin="0 10 0 0" HorizontalAlignment="Left"
                     Command="{Binding MojaKomanda2}"
                     Content="Ukupan unos kalorija u danu" />

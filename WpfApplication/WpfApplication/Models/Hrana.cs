@@ -16,6 +16,9 @@ namespace WpfApplication.Models
         public string naziv_proizvoda { get; set; }
         public double tezina { get; set; }
         public double kalorije { get; set; }
+        public double bjelancevine { get; set; }
+        public double ugljikohidrati { get; set; }
+        public double masti { get; set; }
         public double suma_kalorija { get; set; }
     }
 }

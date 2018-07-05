@@ -1,105 +1,105 @@
 <?xml version="1.0"?>
 <nutrition>
-<dnevne-vrijednosti>
-	<masti units="g">100</masti>
-	<ugljikohidrati units="g">100</ugljikohidrati>
-	<bjelancevine units="g">100</bjelancevine>
-  <kalorije units="g">100</kalorije>
-</dnevne-vrijednosti>
- <food-group name="Meso">
-   <food>
-     <name>Hrenovke</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Slanina</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Janjetina</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Jetra</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Kobasica</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Kunic</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Mljeveno mijesano meso</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Pileca prsa</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Pureca prsa</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Salama</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Svinjetina</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Sunka</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
-   <food>
-     <name>Teletina</name>
-     <kalorije>258</kalorije>
-     <masti>20</masti>
-     <uljikohidrati>7</uljikohidrati>
-     <bjelancevine>13</bjelancevine>
-   </food>
- </food-group>
-  <food-group name ="Riba">
+  <dnevne-vrijednosti>
+    <masti units="g">100</masti>
+    <ugljikohidrati units="g">100</ugljikohidrati>
+    <bjelancevine units="g">100</bjelancevine>
+    <kalorije units="g">100</kalorije>
+  </dnevne-vrijednosti>
+  <food-group name="Meso">
+    <food>
+      <name>Hrenovke</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Slanina</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Janjetina</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Jetra</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Kobasica</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Kunic</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Mljeveno mijesano meso</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Pileca prsa</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Pureca prsa</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Salama</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Svinjetina</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Sunka</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+    <food>
+      <name>Teletina</name>
+      <kalorije>258</kalorije>
+      <masti>20</masti>
+      <uljikohidrati>7</uljikohidrati>
+      <bjelancevine>13</bjelancevine>
+    </food>
+  </food-group>
+  <food-group name="Riba">
     <food>
       <name>Bakalar</name>
       <kalorije>258</kalorije>
@@ -192,7 +192,7 @@
       <bjelancevine>13</bjelancevine>
     </food>
   </food-group>
-  <food-group name ="Zitarice">
+  <food-group name="Zitarice">
     <food>
       <name>Crni kruh</name>
       <kalorije>258</kalorije>

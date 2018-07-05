@@ -22,5 +22,6 @@
         public float Tezina { get; set; }
         public float Kalorije { get; set; }
         public float SumaKalorija { get; set; }
+
     }
 }
