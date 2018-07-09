@@ -1,4 +1,6 @@
-﻿namespace WpfApplication.ViewModels
+﻿using System.Collections.Generic;
+
+namespace WpfApplication.ViewModels
 {
     #region Using
 
@@ -23,7 +25,7 @@
         private MyCommand _mojaKomanda;
         private readonly BazaEntities _bazaEntities;
         private MyCommand _mojaKomanda2;
-        private readonly string _pathOfXml = @"C:\Users\ssviben\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
+        private readonly string _pathOfXml = @"C:\Users\sandr\source\repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
 
 
         public MainWindowVm()
@@ -36,6 +38,8 @@
             VrsteObroka = new ObservableCollection<string>(Enum.GetNames(typeof(VrstaObrokaEnum)));
 
             LoadDataFromDatabase(); //ucitaj podatke iz baze u kolekciju PrehrambeniProizvodi
+
+            PrehrambeniProizvodiXmlParser(); //ucitaj podatke iz xml-a
         }
 
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
@@ -211,19 +215,10 @@
             //TODO: spremiti podatke iz xml-a u listu
             var xmlTypeDocument = XDocument.Load(_pathOfXml); 
 
-            var foodListNode = xmlTypeDocument.Descendants("food-group").First();
-
-            //var appList = appListNode.Descendants("Application")
-            //                         .Where(appNode => appNode.Attribute("type").Value.Equals("VGW"))
-            //                         .Select(appNode => new { appNode, addressNode = appNode.Descendants("MyIPAddr").First() })
-            //                         .Select(t => new VideoGateway()
-            //                                      {
-            //                                          GatewayName = t.appNode.Attribute("id").Value,
-            //                                          GatewayIpAddress = t.addressNode.Value,
-            //                                          GatewayPort = int.Parse(t.addressNode.Attribute("port").Value),
-            //                                          Streams = t.appNode.Descendants("Stream").Select(vgw => int.Parse(vgw.Attribute("chid").Value))
-            //                                                     .ToList()
-            //                                      }).ToList();
+            var foodListNode = xmlTypeDocument.Descendants("nutrition").First();
+            
+            var xList = foodListNode.Descendants("food-group").Select(node => new {node = foodListNode.Descendants("food").First() }).ToList();
+            
         }
     }
 }
