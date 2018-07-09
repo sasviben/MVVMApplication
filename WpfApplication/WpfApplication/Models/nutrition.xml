@@ -1,841 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <NutritionModel>
-  <!--<dnevne-vrijednosti>
-    <masti units="g">100</masti>
-    <ugljikohidrati units="g">100</ugljikohidrati>
-    <bjelancevine units="g">100</bjelancevine>
-    <kalorije units="g">100</kalorije>
-  </dnevne-vrijednosti>-->
   <food-group name="Meso">
-    <food>
-      <name>Hrenovke</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Slanina</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Janjetina</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Jetra</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kobasica</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kunic</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Mljeveno mijesano meso</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Pileca prsa</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Pureca prsa</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Salama</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Svinjetina</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sunka</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Teletina</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Hrenovke" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Slanina" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Janjetina" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Jetra" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kobasica" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kunic" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Mljeveno mijesano meso" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Pileca prsa" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Pureca prsa" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Salama" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Svinjetina" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Sunka" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Teletina" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Riba">
-    <food>
-      <name>Bakalar</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Dagnja</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Haringa</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kamenica</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Lignja</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Losos</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Pastrva</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sardine u ulju</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Skusa</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Saran</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Skampi</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Stuka</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Tuna u ulju</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Bakalar" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Dagnja" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Haringa" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kamenice" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Lignje" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Losos" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Pastrva" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Sardine u ulju" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Skusa" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Saran" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Skampi" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Stuka" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Tuna u ulju" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Zitarice">
-    <food>
-      <name>Crni kruh</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Dvopek</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Griz</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kokice</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kukuruzni kruh</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kukuruzne pahuljice</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Musli</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Polubijeli kruh</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Riža</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Tjestenina sa jajima</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Zobene pahuljice</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Crni kruh" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Dvopek" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Griz" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kokice" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kukuruzni kruh" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kukuruzne pahuljice" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Musli" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Polubijeli kruh" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Riža" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Tjestenina sa jajima" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Zobene pahuljice" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Krumpir">
-    <food>
-      <name>Krumpir kuhani</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Pomfrit</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Cips</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Batat</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Krumpir kuhani" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Pomfrit" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Cips" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Batat" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Voce">
-    <food>
-      <name>Ananas</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Banane</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Borovnice</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Breskve</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Dinja</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Grozde</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Grejp</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Jabuka</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Jagode</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kiwi</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kruška</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Lubenica</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Maline</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Mandarina</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Marelica</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Naranca</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Ribizl</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sljive</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Tresnje</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Ananas" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Banane" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Borovnice" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Breskve" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Dinja" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Grozde" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Grejp" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Jabuka" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Jagode" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kiwi" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kruska" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Lubenica" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Maline" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Mandarine" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Marelica" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Naranca" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Ribizl" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Sljive" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Tresnje" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Povrce">
-    <food>
-      <name>Sparoga</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Brokula</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Cikla</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Cvjetaca</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Celer</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Grah</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Grasak</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kelj</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Krastavci</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kupus</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Luk</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Mrkva</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Paprika</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Rajcica</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sampinjoni</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Spinat</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Zelena salata</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Blitva</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Sparoga" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Brokula" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Cikla" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Celer" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Grah" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Grasak" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kelj" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Krastavci" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kupus" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Luk" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Mrkva" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Paprika" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Rajcica" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Sampinjoni" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Spinat" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Zelena salata" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Blitva" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Masnoce i ulja">
-    <food>
-      <name>Maslac</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Margarin</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Majoneza</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Majoneza light</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Svinjska mast</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Ulje maslinovo</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Ulje suncokretovo</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Ulje repino</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Ulje kokosovo</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Maslac" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Majoneza" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Majoneza light" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Svinjska mast" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Ulje maslinovo" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Ulje suncokretovo" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Ulje kokosovo" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Ulje repino" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Jaja">
-    <food>
-      <name>Cijelo jaje</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Zumanjak</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Bjelanjak</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Cijelo jaje" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Zumanjak" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Bjelanjak" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Slatkisi">
-    <food>
-      <name>Tvrdi bomboni</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Cokolada mlijecna</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Cokolada za kuhanje</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Cokolada namaz-nutella</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Gumeni bomboni</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Kakao prah</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Marmelada</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Med</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Napolitanke</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Puding u prahu</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Secer kristal</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Tvrdi bomboni" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Cokolada mlijecna" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Cokolada za kuhanje" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Cokolada namaz (nutella)" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Gumeni bomboni" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Kakao prah" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Marmelada" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Med" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Napolitanke" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Puding u prahu" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
+    <food name="Secer kristal" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>
   </food-group>
   <food-group name="Pice">
-    <food>
-      <name>Limunada</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sok od jabuke</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sok od narance</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sok od grejpa</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sok od ribizla</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sok od mrkve</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Sok od grodza</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Svijetlo pivo</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Crno vino</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Bijelo vino</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Rakija</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Viski</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Coca Cola Zero</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Coca Cola</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
-    <food>
-      <name>Cedevita</name>
-      <kalorije>258</kalorije>
-      <masti>20</masti>
-      <uljikohidrati>7</uljikohidrati>
-      <bjelancevine>13</bjelancevine>
-    </food>
+    <food name="Limunada" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Sok od jabuke" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Sok od narance" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Sok od grejpa" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Sok od mrkve" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Sok od grozda" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Svijetlo pivo" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Crno vino" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Bijelo vino" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Rakija" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Viski" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Coca Cola" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Coca Cola Zero" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
+    <food name="Cedevita" kalorije="258" ugljikohidrati="7" masti="20" bjelancevine="13"/>  
   </food-group>
 </NutritionModel>

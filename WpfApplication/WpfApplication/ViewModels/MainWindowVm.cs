@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Documents;
 
 namespace WpfApplication.ViewModels
 {
@@ -26,7 +27,9 @@ namespace WpfApplication.ViewModels
         private MyCommand _mojaKomanda;
         private readonly BazaEntities _bazaEntities;
         private MyCommand _mojaKomanda2;
-        private readonly string _pathOfXml = @"C:\Users\ssviben\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
+        private readonly string _pathOfXml = @"C:\Users\sandr\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
+        private string _comboBoxGrupaHrane = string.Empty;
+        private string _comboBoxHrana = string.Empty;
 
 
         public MainWindowVm()
@@ -34,18 +37,28 @@ namespace WpfApplication.ViewModels
             _bazaEntities = new BazaEntities();
 
             PrehrambeniProizvodi = new ObservableCollection<PrehrambeniProizvod>();
-            PrehrambeniProizvodiINutritivneVrijednosti = new ObservableCollection<PrehrambeniProizvod>();
+
+            //PrehrambeniProizvodiINutritivneVrijednosti = new ObservableCollection<PrehrambeniProizvod>();
 
             VrsteObroka = new ObservableCollection<string>(Enum.GetNames(typeof(VrstaObrokaEnum)));
 
             LoadDataFromDatabase(); //ucitaj podatke iz baze u kolekciju PrehrambeniProizvodi
 
             PrehrambeniProizvodiXmlParser(); //ucitaj podatke iz xml-a
+
+            GrupeHrane = new ObservableCollection<string>();
+
+            Hrana = new ObservableCollection<NutritionFoodgroupFood>();
+            PopulateGrupeHrane();
+
+            GetFood();
         }
 
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
-        public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodiINutritivneVrijednosti { get; set; }
+        //public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodiINutritivneVrijednosti { get; set; }
         public ObservableCollection<string> VrsteObroka { get; set; }
+        public ObservableCollection<string> GrupeHrane { get; set; }
+        public ObservableCollection<NutritionFoodgroupFood> Hrana { get; set; }
         public NutritionModel NutritionModel { get; set; }
 
 
@@ -66,15 +79,32 @@ namespace WpfApplication.ViewModels
             set
             {
                 _comboBoxVrstaObroka = value;
-                PopuniOstale(value);
                 _mojaKomanda?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(ComboBoxVrstaObroka));
             }
         }
 
-        private void PopuniOstale(string value)
+        public string ComboBoxGrupaHrane
         {
+            get { return _comboBoxGrupaHrane; }
+            set
+            {
+                _comboBoxGrupaHrane = value;
+                GetFood();
+                _mojaKomanda?.RaiseCanExecuteChanged();
+                OnPropertyChanged(nameof(ComboBoxGrupaHrane));
+            }
+        }
 
+        public string ComboBoxHrana
+        {
+            get { return _comboBoxHrana; }
+            set
+            {
+                _comboBoxHrana = value;
+                _mojaKomanda?.RaiseCanExecuteChanged();
+                OnPropertyChanged(nameof(ComboBoxHrana));
+            }
         }
 
         public string FormTezina
@@ -133,11 +163,9 @@ namespace WpfApplication.ViewModels
         private bool CanSaveDateFromForm(object obj)
         {
             //ako su polja prazna button treba biti onemogućen
-            if (FormNazivProizvoda.Length > 0 && FormKalorije.Length > 0 && FormTezina.Length > 0)
+            if (FormTezina.Length > 0 && float.TryParse(FormTezina, out _))
             {
-                //ako nije unesen broj za kalorije i tezinu button treba biti onemogućen
-                if (float.TryParse(FormKalorije, out _) && float.TryParse(FormTezina, out _))
-                    return true;
+                return true;
             }
 
             return false;
@@ -219,13 +247,36 @@ namespace WpfApplication.ViewModels
         }
 
         public void PrehrambeniProizvodiXmlParser()
-        {
-            var path = Path.Combine(Environment.CurrentDirectory, "nutrition.xml");
+        { 
 
             // XmlSerializer.SaveData<NutritionModel>(model, path);
 
-            NutritionModel = XmlSerializer.LoadData<NutritionModel>(path);
+            NutritionModel = XmlSerializer.LoadData<NutritionModel>(_pathOfXml);
 
+        }
+
+        private void PopulateGrupeHrane()
+        {
+            foreach (var nutritionFoodgroup in NutritionModel.Foodgroup)
+            {
+                GrupeHrane.Add(nutritionFoodgroup.Name);
+            }
+        }
+
+        private void GetFood()
+        {
+            //pronađi foodGroup.Name sa traženim imenom
+            //uzmi listu Food od toga foodGroup.Name - a
+            var listFood = new List<NutritionFoodgroup>();
+            var x = NutritionModel.Foodgroup.Find(foodgroup => foodgroup.Name.Equals(ComboBoxGrupaHrane));
+
+            //kako sad ovo prebaciti u kolekciju Hrana na koju se bindam??
+            
+        }
+
+        private void PopulateFood()
+        {
+            throw new NotImplementedException();
         }
     }
 }

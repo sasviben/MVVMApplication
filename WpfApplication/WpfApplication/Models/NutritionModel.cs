@@ -55,7 +55,7 @@
         public int Masti { get; set; }
 
         [XmlAttribute("ugljikohidrati")]
-        public int Uljikohidrati { get; set; }
+        public int Ugljikohidrati { get; set; }
 
         [XmlAttribute("bjelancevine")]
         public int Bjelancevine { get; set; }

@@ -34,24 +34,28 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Vrsta obroka:" />
-            <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding VrsteObroka}"
+            <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding VrsteObroka}"
                       SelectedIndex="0"
                       SelectedItem="{Binding ComboBoxVrstaObroka, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Naziv proizvoda:" />
-            <!--TODO: Dodati novo polje Textblock i ddl za grupe proizvoda-->
-            <!--TODO: Zamijeniti textbox sa ddl sa proizvodima-->
-            <TextBox Grid.Row="1" Grid.Column="1"
-                     Text="{Binding FormNazivProizvoda, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Grupa hrane:" />
+            <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding GrupeHrane}"
+                      SelectedIndex="0"
+                      SelectedItem="{Binding ComboBoxGrupaHrane, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Tezina u gramima:" />
-            <TextBox Grid.Row="2" Grid.Column="1"
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Ime hrane:" />
+            <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Hrana}"
+                      SelectedIndex="0"
+                      SelectedItem="{Binding ComboBoxHrana, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Tezina u gramima:" />
+            <TextBox Grid.Row="3" Grid.Column="1"
                      Text="{Binding FormTezina, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Kalorije na 100 grama:" />
+            
             <!--TODO: izbaciti iz forme i ubaciti u tabelu-->
             <TextBox Grid.Row="3" Grid.Column="1"
-                     Text="{Binding FormKalorije, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                     Text="{Binding FormTezina, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             
 
             <Button Grid.Row="4" Grid.Column="1" Height="20" Width="150" Margin="0 10 0 0"
