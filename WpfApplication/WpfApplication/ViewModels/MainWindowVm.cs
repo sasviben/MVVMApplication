@@ -6,6 +6,7 @@ namespace WpfApplication.ViewModels
 
     using System;
     using System.Collections.ObjectModel;
+    using System.IO;
     using System.Linq;
     using System.Windows.Input;
     using System.Xml.Linq;
@@ -25,7 +26,7 @@ namespace WpfApplication.ViewModels
         private MyCommand _mojaKomanda;
         private readonly BazaEntities _bazaEntities;
         private MyCommand _mojaKomanda2;
-        private readonly string _pathOfXml = @"C:\Users\sandr\source\repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
+        private readonly string _pathOfXml = @"C:\Users\ssviben\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
 
 
         public MainWindowVm()
@@ -45,6 +46,7 @@ namespace WpfApplication.ViewModels
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodiINutritivneVrijednosti { get; set; }
         public ObservableCollection<string> VrsteObroka { get; set; }
+        public NutritionModel NutritionModel { get; set; }
 
 
         public string FormNazivProizvoda
@@ -64,9 +66,15 @@ namespace WpfApplication.ViewModels
             set
             {
                 _comboBoxVrstaObroka = value;
+                PopuniOstale(value);
                 _mojaKomanda?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(ComboBoxVrstaObroka));
             }
+        }
+
+        private void PopuniOstale(string value)
+        {
+
         }
 
         public string FormTezina
@@ -212,13 +220,12 @@ namespace WpfApplication.ViewModels
 
         public void PrehrambeniProizvodiXmlParser()
         {
-            //TODO: spremiti podatke iz xml-a u listu
-            var xmlTypeDocument = XDocument.Load(_pathOfXml); 
+            var path = Path.Combine(Environment.CurrentDirectory, "nutrition.xml");
 
-            var foodListNode = xmlTypeDocument.Descendants("nutrition").First();
-            
-            var xList = foodListNode.Descendants("food-group").Select(node => new {node = foodListNode.Descendants("food").First() }).ToList();
-            
+            // XmlSerializer.SaveData<NutritionModel>(model, path);
+
+            NutritionModel = XmlSerializer.LoadData<NutritionModel>(path);
+
         }
     }
 }

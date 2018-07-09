@@ -1,11 +1,11 @@
-<?xml version="1.0"?>
-<nutrition>
-  <dnevne-vrijednosti>
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionModel>
+  <!--<dnevne-vrijednosti>
     <masti units="g">100</masti>
     <ugljikohidrati units="g">100</ugljikohidrati>
     <bjelancevine units="g">100</bjelancevine>
     <kalorije units="g">100</kalorije>
-  </dnevne-vrijednosti>
+  </dnevne-vrijednosti>-->
   <food-group name="Meso">
     <food>
       <name>Hrenovke</name>
@@ -838,4 +838,4 @@
       <bjelancevine>13</bjelancevine>
     </food>
   </food-group>
-</nutrition>
+</NutritionModel>

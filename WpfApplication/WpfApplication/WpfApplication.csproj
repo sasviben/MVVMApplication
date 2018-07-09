@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\XmlSerializer.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Hrana.cs">
       <DependentUpon>ModelBaze.tt</DependentUpon>
@@ -97,6 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelBaze.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\NutritionModel.cs" />
     <Compile Include="Models\PrehrambeniProizvod.cs" />
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
