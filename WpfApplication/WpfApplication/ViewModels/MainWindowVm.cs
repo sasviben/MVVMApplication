@@ -27,7 +27,7 @@ namespace WpfApplication.ViewModels
         private MyCommand _mojaKomanda;
         private readonly BazaEntities _bazaEntities;
         private MyCommand _mojaKomanda2;
-        private readonly string _pathOfXml = @"C:\Users\sandr\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
+        private readonly string _pathOfXml = @"C:\Users\ssviben\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
         private string _comboBoxGrupaHrane = string.Empty;
         private string _comboBoxHrana = string.Empty;
 
@@ -48,17 +48,18 @@ namespace WpfApplication.ViewModels
 
             GrupeHrane = new ObservableCollection<string>();
 
-            Hrana = new ObservableCollection<NutritionFoodgroupFood>();
+            Hrana = new ObservableCollection<string>();
+
             PopulateGrupeHrane();
 
-            GetFood();
+            //GetFood();
         }
 
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
         //public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodiINutritivneVrijednosti { get; set; }
         public ObservableCollection<string> VrsteObroka { get; set; }
         public ObservableCollection<string> GrupeHrane { get; set; }
-        public ObservableCollection<NutritionFoodgroupFood> Hrana { get; set; }
+        public ObservableCollection<string> Hrana { get; set; }
         public NutritionModel NutritionModel { get; set; }
 
 
@@ -90,7 +91,9 @@ namespace WpfApplication.ViewModels
             set
             {
                 _comboBoxGrupaHrane = value;
-                GetFood();
+
+                if(!string.IsNullOrEmpty(value))
+                    GetFood();
                 _mojaKomanda?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(ComboBoxGrupaHrane));
             }
@@ -150,13 +153,21 @@ namespace WpfApplication.ViewModels
 
         private void SaveDateFromForm()
         {
+
+            var foodGroup = NutritionModel.Foodgroup.First(foodgroup => foodgroup.Name.Equals(ComboBoxGrupaHrane));
+            var hrana = foodGroup.Food.Single(x => x.Name == ComboBoxHrana);
+
             PrehrambeniProizvodi.Add(new PrehrambeniProizvod
                                      {
                                          Vrsta = ComboBoxVrstaObroka,
-                                         Naziv = FormNazivProizvoda,
-                                         Kalorije = float.Parse(FormKalorije),
+                                         Naziv = ComboBoxHrana,
+                                         Kalorije = hrana.Kalorije,
+                                         Masti = hrana.Masti,
+                                         Bjelancevine = hrana.Bjelancevine,
+                                         Ugljikohidrati = hrana.Ugljikohidrati,
                                          Tezina = float.Parse(FormTezina),
-                                         SumaKalorija = CalculateSum(float.Parse(FormTezina), float.Parse(FormKalorije))
+                                         SumaKalorija = CalculateSum(float.Parse(FormTezina), hrana.Kalorije), 
+                                         
                                      });
         }
 
@@ -268,10 +279,19 @@ namespace WpfApplication.ViewModels
             //pronađi foodGroup.Name sa traženim imenom
             //uzmi listu Food od toga foodGroup.Name - a
             var listFood = new List<NutritionFoodgroup>();
-            var x = NutritionModel.Foodgroup.Find(foodgroup => foodgroup.Name.Equals(ComboBoxGrupaHrane));
+            var hrana = NutritionModel.Foodgroup.First(foodgroup => foodgroup.Name.Equals(ComboBoxGrupaHrane));
+
+            Hrana.Clear();
+
+            foreach (var item in hrana.Food)
+            {
+                Hrana.Add(item.Name);   
+            }
+
+            ComboBoxHrana = Hrana.FirstOrDefault();
 
             //kako sad ovo prebaciti u kolekciju Hrana na koju se bindam??
-            
+
         }
 
         private void PopulateFood()

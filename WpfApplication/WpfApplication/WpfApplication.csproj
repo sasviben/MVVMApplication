@@ -159,6 +159,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Baza.mdf</DependentUpon>
     </Content>
+    <Resource Include="Images\MyBackground.jpg" />
     <Content Include="Models\ModelBaze.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelBaze.edmx</DependentUpon>
