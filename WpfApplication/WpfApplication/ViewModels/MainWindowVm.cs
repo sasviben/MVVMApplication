@@ -20,7 +20,7 @@
         private MyCommand _mojaKomanda;
         private readonly BazaEntities _bazaEntities;
         private MyCommand _mojaKomanda2;
-        private readonly string _pathOfXml = @"C:\Users\ssviben\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
+        private readonly string _pathOfXml = @"C:\Users\sandr\Source\Repos\MVVMApplication\WpfApplication\WpfApplication\Models\nutrition.xml";
         private string _comboBoxGrupaHrane = string.Empty;
         private string _comboBoxHrana = string.Empty;
 
