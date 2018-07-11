@@ -44,7 +44,6 @@
     [Serializable]
     public class NutritionFoodgroupFood
     {
-       
         [XmlAttribute("name")]
         public string Name { get; set; }
 

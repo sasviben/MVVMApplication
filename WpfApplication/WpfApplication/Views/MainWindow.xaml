@@ -9,7 +9,7 @@
         d:DataContext="{d:DesignInstance viewModels:MainWindowVm}">
 
     <Window.Resources>
-        <SolidColorBrush Color="White" x:Key="TexblockForeground"></SolidColorBrush>
+        <SolidColorBrush Color="White" x:Key="TexblockForeground" />
         <Style TargetType="DataGridCell">
             <Style.Setters>
                 <Setter Property="TextBlock.TextAlignment" Value="Center" />
@@ -18,7 +18,7 @@
     </Window.Resources>
 
     <Window.Background>
-        <ImageBrush ImageSource="../Images/MyBackground.jpg"></ImageBrush>
+        <ImageBrush ImageSource="../Images/MyBackground.jpg" />
     </Window.Background>
 
     <Grid Margin="10,0,0,0">
@@ -47,30 +47,30 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Vrsta obroka:"  Margin="0,7,0,0" Foreground="{StaticResource TexblockForeground}"/>
+            <TextBlock Text="Vrsta obroka:" Margin="0,7,0,0" Foreground="{StaticResource TexblockForeground}" />
             <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding VrsteObroka}" Margin="4,7,0,0"
                       SelectedIndex="0"
                       SelectedItem="{Binding ComboBoxVrstaObroka, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Grupa hrane:" Margin="0,7,0,0"  Foreground="{StaticResource TexblockForeground}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Grupa hrane:" Margin="0,7,0,0" Foreground="{StaticResource TexblockForeground}" />
             <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding GrupeHrane}" Margin="4,7,0,0"
                       SelectedIndex="0"
                       SelectedItem="{Binding ComboBoxGrupaHrane, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Naziv hrane:" Margin="0,7,0,0"  Foreground="{StaticResource TexblockForeground}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Naziv hrane:" Margin="0,7,0,0" Foreground="{StaticResource TexblockForeground}" />
             <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Hrana}" Margin="4,7,0,0"
                       SelectedIndex="0"
                       SelectedItem="{Binding ComboBoxHrana, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Tezina u gramima:" Margin="0,7,0,0" Foreground="{StaticResource TexblockForeground}"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Tezina u gramima:" Margin="0,7,0,0" Foreground="{StaticResource TexblockForeground}" />
             <TextBox Grid.Row="3" Grid.Column="1" Margin="4,7,0,0"
                      Text="{Binding FormTezina, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            
+
             <!--TODO: izbaciti iz forme i ubaciti u tabelu-->
-            <TextBox Grid.Row="3" Grid.Column="1" Margin="4,7,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="4,7,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Text="{Binding FormTezina, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            
+
 
             <Button Grid.Row="4" Grid.Column="1" Height="25" Width="105" Margin="4,7,0,0"
                     Command="{Binding MojaKomanda}"
@@ -82,9 +82,9 @@
             <DataGrid AutoGenerateColumns="False"
                       Background="Transparent"
                       RowBackground="Transparent"
-                      RowHeaderWidth="0" 
+                      RowHeaderWidth="0"
                       HorizontalContentAlignment="Center"
-                      ItemsSource="{Binding PrehrambeniProizvodi}" >
+                      ItemsSource="{Binding PrehrambeniProizvodi}">
                 <!--Skrivanje selektora - RowHeaderWidth = 0-->
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -95,14 +95,14 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="*" Header="Vrsta obroka" Binding="{Binding Path=Vrsta}" MinWidth="50" Foreground="{StaticResource TexblockForeground}"  />
+                    <DataGridTextColumn Width="*" Header="Vrsta obroka" Binding="{Binding Path=Vrsta}" MinWidth="50" Foreground="{StaticResource TexblockForeground}" />
                     <DataGridTextColumn Width="*" Header="Naziv" Binding="{Binding Path=Naziv}" MinWidth="50" Foreground="{StaticResource TexblockForeground}" />
-                    <DataGridTextColumn Width="*" Header="Tezina u g" Binding="{Binding Path=Tezina}" MinWidth="50" Foreground="{StaticResource TexblockForeground}"/>
-                    <DataGridTextColumn Width="*" Header="Masti" Binding="{Binding Path=Masti}" MinWidth="50" Foreground="{StaticResource TexblockForeground}"/>
-                    <DataGridTextColumn Width="*" Header="Ugljikohidrati" Binding="{Binding Path=Ugljikohidrati}" MinWidth="50" Foreground="{StaticResource TexblockForeground}"/>
-                    <DataGridTextColumn Width="*" Header="Bjelancevine" Binding="{Binding Path=Bjelancevine}" MinWidth="50" Foreground="{StaticResource TexblockForeground}"/>
-                    <DataGridTextColumn Width="*" Header="Kcal" Binding="{Binding Path=Kalorije}" MinWidth="50" Foreground="{StaticResource TexblockForeground}"/>
-                    <DataGridTextColumn Width="*" Header="Ukupno Kcal" Binding="{Binding Path=SumaKalorija}" MinWidth="50" Foreground="{StaticResource TexblockForeground}"/>
+                    <DataGridTextColumn Width="*" Header="Tezina u g" Binding="{Binding Path=Tezina}" MinWidth="50" Foreground="{StaticResource TexblockForeground}" />
+                    <DataGridTextColumn Width="*" Header="Masti" Binding="{Binding Path=Masti}" MinWidth="50" Foreground="{StaticResource TexblockForeground}" />
+                    <DataGridTextColumn Width="*" Header="Ugljikohidrati" Binding="{Binding Path=Ugljikohidrati}" MinWidth="50" Foreground="{StaticResource TexblockForeground}" />
+                    <DataGridTextColumn Width="*" Header="Bjelancevine" Binding="{Binding Path=Bjelancevine}" MinWidth="50" Foreground="{StaticResource TexblockForeground}" />
+                    <DataGridTextColumn Width="*" Header="Kcal" Binding="{Binding Path=Kalorije}" MinWidth="50" Foreground="{StaticResource TexblockForeground}" />
+                    <DataGridTextColumn Width="*" Header="Ukupno Kcal" Binding="{Binding Path=SumaKalorija}" MinWidth="50" Foreground="{StaticResource TexblockForeground}" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -120,13 +120,13 @@
                     VerticalContentAlignment="Center"
                     Command="{Binding MojaKomanda2}"
                     Content="Ukupan unos kalorija u danu" />
-            <TextBlock Grid.Row="0" Grid.Column="1" 
-                       Text="{Binding SumaKalorijaUDanu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                       Text="{Binding SumaKalorijaUDanu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                        HorizontalAlignment="Center"
                        FontSize="20"
                        FontWeight="Bold"
                        VerticalAlignment="Center"
-                       Foreground="{StaticResource TexblockForeground}"/>
+                       Foreground="{StaticResource TexblockForeground}" />
 
         </Grid>
     </Grid>

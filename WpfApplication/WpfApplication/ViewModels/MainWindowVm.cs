@@ -1,16 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Windows.Documents;
-
-namespace WpfApplication.ViewModels
+﻿namespace WpfApplication.ViewModels
 {
     #region Using
 
     using System;
     using System.Collections.ObjectModel;
-    using System.IO;
     using System.Linq;
     using System.Windows.Input;
-    using System.Xml.Linq;
     using Helper;
     using Models;
 
@@ -20,9 +15,7 @@ namespace WpfApplication.ViewModels
     public class MainWindowVm : ViewModelBase
     {
         private string _comboBoxVrstaObroka;
-        private string _formNazivProizvoda = string.Empty;
         private string _formTezina = string.Empty;
-        private string _formKalorije = string.Empty;
         private float _sumaKalorijaUDanu;
         private MyCommand _mojaKomanda;
         private readonly BazaEntities _bazaEntities;
@@ -38,8 +31,6 @@ namespace WpfApplication.ViewModels
 
             PrehrambeniProizvodi = new ObservableCollection<PrehrambeniProizvod>();
 
-            //PrehrambeniProizvodiINutritivneVrijednosti = new ObservableCollection<PrehrambeniProizvod>();
-
             VrsteObroka = new ObservableCollection<string>(Enum.GetNames(typeof(VrstaObrokaEnum)));
 
             LoadDataFromDatabase(); //ucitaj podatke iz baze u kolekciju PrehrambeniProizvodi
@@ -50,29 +41,15 @@ namespace WpfApplication.ViewModels
 
             Hrana = new ObservableCollection<string>();
 
-            PopulateGrupeHrane();
-
-            //GetFood();
+            PopulateGrupeHrane(); //popuni GrupeHrane sa svim grupama hrane iz xml-a
         }
 
         public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodi { get; set; }
-        //public ObservableCollection<PrehrambeniProizvod> PrehrambeniProizvodiINutritivneVrijednosti { get; set; }
         public ObservableCollection<string> VrsteObroka { get; set; }
         public ObservableCollection<string> GrupeHrane { get; set; }
         public ObservableCollection<string> Hrana { get; set; }
         public NutritionModel NutritionModel { get; set; }
 
-
-        public string FormNazivProizvoda
-        {
-            get { return _formNazivProizvoda; }
-            set
-            {
-                _formNazivProizvoda = value;
-                _mojaKomanda?.RaiseCanExecuteChanged();
-                OnPropertyChanged(nameof(FormNazivProizvoda));
-            }
-        }
 
         public string ComboBoxVrstaObroka
         {
@@ -92,7 +69,7 @@ namespace WpfApplication.ViewModels
             {
                 _comboBoxGrupaHrane = value;
 
-                if(!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value))
                     GetFood();
                 _mojaKomanda?.RaiseCanExecuteChanged();
                 OnPropertyChanged(nameof(ComboBoxGrupaHrane));
@@ -121,17 +98,6 @@ namespace WpfApplication.ViewModels
             }
         }
 
-        public string FormKalorije
-        {
-            get { return _formKalorije; }
-            set
-            {
-                _formKalorije = value;
-                _mojaKomanda?.RaiseCanExecuteChanged();
-                OnPropertyChanged(nameof(FormKalorije));
-            }
-        }
-
         public float SumaKalorijaUDanu
         {
             get { return _sumaKalorijaUDanu; }
@@ -145,7 +111,7 @@ namespace WpfApplication.ViewModels
 
         #region Commands
 
-        //ovo je samo za button koji sprema podatke iz forme u kolekciju
+        //ovo je samo za button koji sprema podatke iz forme
         public ICommand MojaKomanda
         {
             get { return _mojaKomanda != null ? _mojaKomanda : (_mojaKomanda = new MyCommand(() => SaveDateFromForm(), CanSaveDateFromForm)); }
@@ -153,7 +119,6 @@ namespace WpfApplication.ViewModels
 
         private void SaveDateFromForm()
         {
-
             var foodGroup = NutritionModel.Foodgroup.First(foodgroup => foodgroup.Name.Equals(ComboBoxGrupaHrane));
             var hrana = foodGroup.Food.Single(x => x.Name == ComboBoxHrana);
 
@@ -166,8 +131,7 @@ namespace WpfApplication.ViewModels
                                          Bjelancevine = hrana.Bjelancevine,
                                          Ugljikohidrati = hrana.Ugljikohidrati,
                                          Tezina = float.Parse(FormTezina),
-                                         SumaKalorija = CalculateSum(float.Parse(FormTezina), hrana.Kalorije), 
-                                         
+                                         SumaKalorija = CalculateSum(float.Parse(FormTezina), hrana.Kalorije),
                                      });
         }
 
@@ -182,7 +146,7 @@ namespace WpfApplication.ViewModels
             return false;
         }
 
-
+        //ovo je za button koji računa ukupne kalorije iz tablice
         public ICommand MojaKomanda2
         {
             get { return _mojaKomanda2 != null ? _mojaKomanda2 : (_mojaKomanda2 = new MyCommand(() => CalculateDaySum(), CanCalculateSum)); }
@@ -258,12 +222,8 @@ namespace WpfApplication.ViewModels
         }
 
         public void PrehrambeniProizvodiXmlParser()
-        { 
-
-            // XmlSerializer.SaveData<NutritionModel>(model, path);
-
+        {
             NutritionModel = XmlSerializer.LoadData<NutritionModel>(_pathOfXml);
-
         }
 
         private void PopulateGrupeHrane()
@@ -276,27 +236,16 @@ namespace WpfApplication.ViewModels
 
         private void GetFood()
         {
-            //pronađi foodGroup.Name sa traženim imenom
-            //uzmi listu Food od toga foodGroup.Name - a
-            var listFood = new List<NutritionFoodgroup>();
             var hrana = NutritionModel.Foodgroup.First(foodgroup => foodgroup.Name.Equals(ComboBoxGrupaHrane));
 
             Hrana.Clear();
 
             foreach (var item in hrana.Food)
             {
-                Hrana.Add(item.Name);   
+                Hrana.Add(item.Name);
             }
 
             ComboBoxHrana = Hrana.FirstOrDefault();
-
-            //kako sad ovo prebaciti u kolekciju Hrana na koju se bindam??
-
-        }
-
-        private void PopulateFood()
-        {
-            throw new NotImplementedException();
         }
     }
 }
